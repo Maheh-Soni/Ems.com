@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block data %}
+
+<h1 style="text-align: center; font-weight: bold;">USER QUERYS</h1>
+<table class="table mt-5 table-warning">
+    <thead>
+      <tr class="table-info">
+        <th scope="col">s.no</th>
+        <th scope="col">User Name</th>
+        <th scope="col">User Address</th>
+        <th scope="col">User Email</th>
+        <th scope="col">User Phone</th>
+        <th scope="col">User Query</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in data %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{i.qname}}</td>
+        <td>{{i.qaddress}}</td>
+        <td>{{i.qemail}}</td>
+        <td>{{i.qphone}}</td>
+        <td>{{i.query|truncatechars:20}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    
+{% endblock %}
+ 

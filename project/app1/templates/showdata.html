@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block data %}
+<a style="float:right;margin-right: 10%;padding-top: 1%;" href="{% url 'Userpage' %}"><button type="button" class="btn btn-primary me-3">
+  Back
+</button></a>
+<a style="float:right;margin-right: 1%;padding-top: 1%;" href="{% url 'UserLogin' %}"><button type="button" class="btn btn-primary me-3">
+  Logout
+</button></a>
+<table class="table mt-2">
+    <thead>
+      <tr>
+        <th scope="col">s.no</th>
+        <th scope="col">User Name</th>
+        <th scope="col">User Address</th>
+        <th scope="col">User Email</th>
+        <th scope="col">User Phone</th>
+        <th scope="col">User Query</th>
+        <th scope="col">ACTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in data %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{i.qname}}</td>
+        <td>{{i.qaddress}}</td>
+        <td>{{i.qemail}}</td>
+        <td>{{i.qphone}}</td>
+        <td>{{i.query|truncatechars:20}}</td>
+        <td>
+            <a href="{% url 'Userupdate' i.id %}" class="btn btn-success">Update</a>
+            <a href="{% url 'Userdelete' i.id %}" class="btn btn-danger m-2">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    
+{% endblock %}
+ 

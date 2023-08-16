@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block data %}
+<a style="float:right;margin-right: 12%;padding-top: 1%;" href="{% url 'UserLogin' %}"><button type="button" class="btn btn-primary me-3">
+  Logout
+</button></a>
+<div class="w-50 p-3" style="margin: auto;">
+  <h1 style="margin-left: 20%;font-weight: bold;">STUDENT INQUERY FORM</h1>
+<form action="{% url 'Userpage' %}" method="POST">
+  {% csrf_token %}
+    <!-- Text input -->
+    <div class="form-outline mb-4" style="margin-top: 8%;">
+        <label class="form-label" for="form6Example3">Name</label>
+      <input type="text" id="form6Example3" class="form-control" name="qname" />
+    </div>
+  
+    <!-- Text input -->
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form6Example4">Address</label>
+      <input type="text" id="form6Example4" class="form-control" name="qaddress" />
+    </div>
+  
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form6Example5">Email</label>
+      <input type="email" id="form6Example5" class="form-control" name="qemail" />
+    </div>
+  
+    <!-- Number input -->
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form6Example6">Phone</label>
+      <input type="number" id="form6Example6" class="form-control" name="qphone" />
+    </div>
+  
+    <!-- Message input -->
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form6Example7">Query</label>
+      <textarea class="form-control" id="form6Example7" rows="4" name="query"></textarea>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="w-100 p-3 btn-primary" class="btn btn-lg btn-block">SUBMIT</button>
+  </form>
+  <a href="{% url 'showdata' %}"><button type="submit" class="w-100 p-3 btn-warning mt-4 text-light" class="btn btn-lg btn-block ">VIEW QUERY</button></a>
+</div>
+
+{% endblock %}
